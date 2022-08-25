@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-#GET /about
-get "about", to: "about#index"
-  # root "articles#index"
+#GET /about /- is optional
+ get "about", to: "about#index"
+  # root page
+ root to: "main#index"
 end
