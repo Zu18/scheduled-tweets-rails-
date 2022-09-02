@@ -7,4 +7,8 @@ def set_current_user
   end
 end
 
+def require_user_logged_in!
+  redirect_to sign_in_path, alert: "You must be sign in to do that." if Current.user.nil?
+end
+
 end
