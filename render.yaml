@@ -1,16 +1,19 @@
 databases:
   - name: mysite
+    plan: free
     region: frankfurt
     databaseName: mysite
     user: mysite
 
 services:
   - type: redis
+    plan: free
     name: sidekiq-redis
     region: frankfurt
     maxmemoryPolicy: noeviction
     ipAllowList: [ ] # only allow internal connections
   - type: worker
+    plan: free
     name: sidekiq-worker
     env: ruby
     region: frankfurt
@@ -25,6 +28,7 @@ services:
       - key: RAILS_MASTER_KEY
         sync: false
   - type: web
+    plan: free
     name: scheduled-tweets
     env: ruby
     region: frankfurt
