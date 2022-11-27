@@ -12,21 +12,21 @@ services:
     region: frankfurt
     maxmemoryPolicy: noeviction
     ipAllowList: [ ] # only allow internal connections
-  - type: worker
-    plan: free
-    name: sidekiq-worker
-    env: ruby
-    region: frankfurt
-    buildCommand: bundle install
-    startCommand: bundle exec sidekiq
-    envVars:
-      - key: REDIS_URL
-        fromService:
-          type: redis
-          name: sidekiq-redis
-          property: connectionString
-      - key: RAILS_MASTER_KEY
-        sync: false
+#  - type: worker
+#    plan: free
+#    name: sidekiq-worker
+#    env: ruby
+#    region: frankfurt
+#    buildCommand: bundle install
+#    startCommand: bundle exec sidekiq
+#    envVars:
+#      - key: REDIS_URL
+#        fromService:
+#          type: redis
+#          name: sidekiq-redis
+#          property: connectionString
+#      - key: RAILS_MASTER_KEY
+#        sync: false
   - type: web
     plan: free
     name: scheduled-tweets
