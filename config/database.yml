@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: scheduled_tweets_rails__production
-  username: scheduled_tweets_rails_
-  password: <%= ENV["SCHEDULED_TWEETS_RAILS__DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
